@@ -107,21 +107,11 @@ a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobr
 /* abertura */
 .abertura { padding-top: clamp(3rem, 8vw, 5.5rem); padding-bottom: clamp(3.5rem, 8vw, 6rem); }
 .vitrine { display: flex; justify-content: center; align-items: flex-end; gap: clamp(1rem, 4vw, 2.5rem); margin-top: clamp(2.5rem, 6vw, 4rem); }
-.vitrine img { width: clamp(150px, 28vw, 280px); border-radius: clamp(20px, 3vw, 36px); box-shadow: 0 30px 60px -30px rgba(20, 24, 42, .35); }
-.vitrine img:last-child { margin-bottom: clamp(1.5rem, 5vw, 3.5rem); }
 
 /* 17/10 tarde: abertura da empresa, compromissos, números e rótulos de privacidade */
 .abertura .olho { color: var(--cobre-texto); font-size: 1.1rem; margin-bottom: 1rem; }
 .abertura .titulo-gigante { max-width: 15ch; margin-inline: auto; }
 .abertura .subtitulo { max-width: 34ch; margin-inline: auto; margin-top: 1.25rem; }
-/* 17/10 (avaliação final): a primeira tela mostra o produto, não só a promessa — os dois apps, cada um leva à sua página */
-.apps-mini { list-style: none; padding: 0; margin: clamp(2.5rem, 6vw, 3.5rem) auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2.5rem; }
-.apps-mini a { display: flex; align-items: center; gap: .85rem; color: var(--tinta); text-align: left; min-height: 64px; }
-.apps-mini a:hover { text-decoration: none; }
-.apps-mini a:hover strong { text-decoration: underline; text-decoration-color: var(--cobre); text-underline-offset: .2em; }
-.apps-mini img { width: 64px; height: 64px; border-radius: 15px; box-shadow: 0 8px 20px -10px rgba(0, 0, 0, .35); }
-.apps-mini strong { display: block; font-size: 1.15rem; letter-spacing: -.015em; }
-.apps-mini small { display: block; font-size: .92rem; color: var(--tinta-2); }
 .compromissos { display: grid; gap: 1.25rem; grid-template-columns: 1fr; margin-top: 2.75rem; text-align: left; }
 @media (min-width: 36rem) { .compromissos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 64rem) { .compromissos { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
@@ -138,13 +128,6 @@ a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobr
 @media (min-width: 40rem) { .numeros { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.25rem 1.5rem; } }
 .numeros strong { display: block; font-size: clamp(2.8rem, 6vw, 3.8rem); line-height: 1; font-weight: 700; letter-spacing: -.04em; }
 .numeros span { display: block; margin-top: .5rem; color: var(--tinta-2); font-size: 1rem; max-width: 18ch; margin-inline: auto; }
-/* 17/10: cada link «Por dentro do…» fica centrado sob a tela do seu app (dono: «desalinhados em relação às imagens») */
-.vitrine-apps { align-items: flex-start; }
-.tela-app { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; color: var(--tinta); font-size: 1.1rem; }
-.tela-app:hover { text-decoration: none; }
-.tela-app .seta { text-decoration: underline; text-decoration-color: var(--cobre); text-underline-offset: .25em; min-height: 44px; display: inline-flex; align-items: center; }
-.vitrine-apps .tela-app:last-child { margin-top: 0; }
-.vitrine-apps img:last-child { margin-bottom: 0; }
 .rotulos { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr)); margin-top: 2.5rem; text-align: left; }
 .rotulo { background: var(--tela); border-radius: 22px; padding: 1.6rem 1.6rem 1.4rem; }
 .rotulo-topo { display: flex; align-items: center; gap: .9rem; }
@@ -210,7 +193,6 @@ a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobr
 .cartao-app .preco { margin: .9rem 0 0; text-align: left; font-size: .9rem; }
 .cartao-app .lojas { justify-content: flex-start; margin-top: 1rem; }
 .cartao-app .links { justify-content: flex-start; margin: .5rem 0 0; font-size: 1.05rem; }
-.cartao-tela img { border-radius: 22px; box-shadow: 0 2px 6px rgba(20, 24, 42, .08), 0 22px 40px -18px rgba(20, 24, 42, .45); }
 @media (max-width: 40rem) {
   .cartao-app { grid-template-columns: 1fr; }
   .cartao-tela { max-width: 15rem; justify-self: center; }
@@ -224,12 +206,8 @@ a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobr
 .destaque h3 { font-size: clamp(1.4rem, 2.6vw, 1.85rem); line-height: 1.12; font-weight: 700; letter-spacing: -.025em; margin: 0 0 .7rem; color: var(--marca); text-wrap: balance; }
 .destaque-texto p:last-child { margin: 0; color: var(--tinta-2); }
 .destaque-tela { margin-top: auto; padding-top: 1.75rem; display: flex; justify-content: center; }
-.destaque-tela img { width: min(100%, 15.5rem); border-radius: 26px;
-                     box-shadow: 0 2px 6px rgba(20, 24, 42, .08), 0 24px 44px -20px rgba(20, 24, 42, .4); }
 .destaque-largo { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 2rem; align-items: center; }
 .destaque-largo .destaque-tela { padding-top: 0; }
-.destaque-largo .destaque-tela img { width: min(100%, 30rem); border-radius: 22px; }
-.destaque-largo.tel .destaque-tela img { width: min(100%, 15.5rem); border-radius: 26px; }
 @media (max-width: 44rem) {
   .destaques { grid-template-columns: 1fr; }
   .destaque-largo { grid-template-columns: 1fr; }
@@ -300,10 +278,10 @@ a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobr
   .topo nav a { padding: 0 .45rem; }
   .marca span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .simbolo { width: 34px; height: 34px; }
-  .vitrine img:last-child { margin-bottom: 1.25rem; }
+  .vitrine .aparelho:last-child { margin-bottom: 1.25rem; }
 }
 /* sombra: as telas flutuam sobre a faixa, como produto em vitrine; os blocos ganham relevo leve */
-.vitrine img, .app-destaque .tela, .galeria img {
+.app-destaque .tela, .galeria img {
   box-shadow: 0 2px 6px rgba(20, 24, 42, .06), 0 18px 36px -12px rgba(20, 24, 42, .22), 0 48px 90px -36px rgba(20, 24, 42, .45); }
 .bloco { box-shadow: 0 1px 2px rgba(20, 24, 42, .04), 0 12px 30px -18px rgba(20, 24, 42, .22); }
 .selo { box-shadow: 0 8px 20px -10px rgba(20, 24, 42, .45); }
@@ -316,8 +294,8 @@ a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobr
   .bloco:hover { transform: translateY(-4px); box-shadow: 0 1px 2px rgba(20, 24, 42, .05), 0 22px 40px -18px rgba(20, 24, 42, .3); }
   .selo:hover { transform: translateY(-2px); }
   @keyframes subir { from { transform: translateY(40px); } to { transform: none; } }
-  .vitrine img { animation: subir .9s cubic-bezier(.2, .7, .2, 1) both; }
-  .vitrine img:last-child { animation-delay: .12s; }
+  .vitrine .aparelho { animation: subir .9s cubic-bezier(.2, .7, .2, 1) both; }
+  .vitrine .aparelho:last-child { animation-delay: .12s; }
   @supports (animation-timeline: view()) {
     @keyframes crescer { from { transform: scale(.9); } to { transform: none; } }
     .app-destaque .tela, .galeria img { animation: crescer linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
@@ -334,3 +312,43 @@ a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobr
 @keyframes pagina-sai { to { opacity: 0; } }
 @keyframes pagina-entra { from { opacity: 0; transform: translateY(10px); } }
 @media print { .topo, .acoes, .lojas, .pular { display: none; } }
+
+/* 17/10 noite (dono: «prints em inglês… desalinhado… visual premium»). Toda tela de app aparece na MESMA moldura de
+   aparelho (preta, cantos do iPhone), no idioma da página. A moldura dá o peso de produto que a tela solta não tem e
+   iguala as telas de origens diferentes. */
+.aparelho { display: block; padding: clamp(5px, .9vw, 8px); background: #1D1D1F; border-radius: clamp(26px, 4.2vw, 42px);
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, .06) inset, 0 2px 4px rgba(20, 24, 42, .08), 0 26px 50px -22px rgba(20, 24, 42, .45), 0 60px 110px -50px rgba(20, 24, 42, .4); }
+.aparelho img { border-radius: clamp(21px, 3.4vw, 34px); width: 100%; box-shadow: none !important; margin: 0 !important; animation: none !important; }
+.aparelho.tablet { border-radius: clamp(18px, 2.4vw, 26px); padding: clamp(6px, 1vw, 10px); }
+.aparelho.tablet img { border-radius: clamp(12px, 1.6vw, 17px); }
+/* abertura: os dois apps lado a lado, cada um com o nome centrado embaixo do próprio aparelho */
+.palco { list-style: none; padding: 0; margin: clamp(2.75rem, 7vw, 4.5rem) auto 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+         gap: clamp(1rem, 5vw, 4.5rem); max-width: 42rem; align-items: start; }
+.palco a { display: flex; flex-direction: column; align-items: center; gap: 1.1rem; color: var(--tinta); }
+.palco a:hover { text-decoration: none; }
+.palco .aparelho { width: min(100%, 17.5rem); }
+.palco-nome { display: flex; flex-direction: column; align-items: center; gap: .5rem; text-align: center; }
+.palco-nome img { width: 44px; height: 44px; border-radius: 10px; box-shadow: 0 0 0 1px rgba(20, 24, 42, .08), 0 6px 14px -8px rgba(0, 0, 0, .4); }
+.palco-nome strong { display: block; font-size: 1.15rem; letter-spacing: -.015em; }
+.palco-nome small { display: block; font-size: .9rem; color: var(--tinta-2); line-height: 1.3; }
+.palco a:hover strong { text-decoration: underline; text-decoration-color: var(--cobre); text-underline-offset: .2em; }
+@media (prefers-reduced-motion: no-preference) {
+  .palco .aparelho { animation: subir .9s cubic-bezier(.2, .7, .2, 1) both; }
+  .palco li:last-child .aparelho { animation-delay: .12s; }
+  .palco a .aparelho { transition: transform .4s cubic-bezier(.2, .7, .2, 1); }
+  .palco a:hover .aparelho { transform: translateY(-6px); }
+}
+/* telas das páginas e dos cartões, na moldura */
+.vitrine .aparelho { width: clamp(150px, 28vw, 280px); }
+.vitrine .aparelho:last-child { margin-bottom: clamp(1.5rem, 5vw, 3.5rem); }
+.cartao-tela .aparelho { width: 100%; }
+.destaque-tela .aparelho { width: min(100%, 15.5rem); }
+.destaque-largo .destaque-tela .aparelho.tablet { width: min(100%, 30rem); }
+.destaque-largo.tel .destaque-tela .aparelho { width: min(100%, 15.5rem); }
+/* o Rivail ainda não existe em italiano, alemão, ucraniano e coreano: a página diz, e diz que as telas são as em inglês */
+.aviso-app { display: flex; gap: .55rem; align-items: flex-start; max-width: 34rem; margin: 1rem auto 0; padding: .8rem 1rem; border-radius: 14px;
+             background: var(--faixa); color: var(--tinta-2); font-size: .92rem; line-height: 1.4; text-align: left; }
+.faixa.cinza .aviso-app, .cartao-app .aviso-app { background: var(--tela); box-shadow: inset 0 0 0 1px var(--linha); }
+.cartao-app .aviso-app { margin-left: 0; }
+.aviso-app::before { content: "i"; flex: none; display: grid; place-items: center; width: 1.25rem; height: 1.25rem; margin-top: .05rem; border-radius: 50%;
+                     border: 1.5px solid var(--cobre-texto); color: var(--cobre-texto); font: 700 .72rem/1 Georgia, serif; }
