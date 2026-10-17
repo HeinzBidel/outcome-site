@@ -10,7 +10,7 @@
   --cobre-texto: #8F4F1C;   /* o cobre da marca não passa 4,5:1 em texto pequeno; este passa (conferência 17/10) */
   --letra: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI Variable Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --largura: 980px; --leitura: 42rem;
-  color-scheme: light;
+  color-scheme: only light;   /* 17/10: «only» impede o modo escuro forçado do navegador (o site é só branco) */
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
