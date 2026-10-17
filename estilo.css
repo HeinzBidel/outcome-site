@@ -1,0 +1,148 @@
+/* Outcome Analytics — galeria branca (17/10/2026, pedido do dono: «deixe branco, à maneira da Apple e da Tesla»).
+   Layout: o produto é a peça; faixas largas alternam branco e cinza claro; uma cor só de ação (o verde da marca);
+   o cobre fica só no logo. Letra do sistema (SF no iPhone e no Mac, Segoe no Windows). Ver MARCA.md §6. */
+:root {
+  --tela: #FFFFFF; --faixa: #F5F5F7; --tinta: #1D1D1F; --tinta-2: #6E6E73; --linha: #D2D2D7;
+  --acao: #1F5C45; --acao-forte: #17493A; --cobre: #A85A27;
+  --letra: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI Variable Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --largura: 980px; --leitura: 42rem;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--tela); color: var(--tinta); font: 400 17px/1.47 var(--letra); letter-spacing: -.022em;
+       -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--acao); text-decoration: none; }
+a:hover { text-decoration: underline; }
+a, button { touch-action: manipulation; }
+:focus-visible { outline: 3px solid var(--acao); outline-offset: 3px; border-radius: 6px; }
+[id] { scroll-margin-top: 4rem; }
+.pular { position: absolute; left: -999px; top: .5rem; background: var(--tinta); color: #fff; padding: .7rem 1rem; z-index: 20; }
+.pular:focus { left: .5rem; }
+.largura { max-width: var(--largura); margin: 0 auto; padding-left: max(22px, env(safe-area-inset-left, 0px)); padding-right: max(22px, env(safe-area-inset-right, 0px)); }
+
+/* navegação translúcida */
+.topo { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(255, 255, 255, .8);
+        -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(0, 0, 0, .08); }
+.topo .largura { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 52px; }
+.marca { display: flex; align-items: center; gap: .5rem; color: var(--tinta); font-weight: 600; font-size: 1rem; letter-spacing: -.01em; min-height: 48px; }
+.marca:hover { text-decoration: none; }
+.simbolo { width: 26px; height: 26px; flex: none; }
+.s-trilha { fill: none; stroke: var(--acao); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.s-base { fill: var(--acao); }
+.s-pad { fill: none; stroke: var(--cobre); stroke-width: 6; }
+.s-furo { fill: var(--cobre); }
+.topo nav { display: flex; gap: .25rem; }
+.topo nav a { color: var(--tinta); font-size: .82rem; padding: 0 .7rem; min-height: 48px; display: inline-flex; align-items: center; opacity: .85; }
+.topo nav a:hover { opacity: 1; text-decoration: none; }
+
+/* títulos e textos */
+.titulo-gigante { font-size: clamp(2.5rem, 7vw, 4.6rem); line-height: 1.05; font-weight: 700; letter-spacing: -.035em; margin: 0; text-wrap: balance; }
+.titulo { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.08; font-weight: 700; letter-spacing: -.03em; margin: 0; text-wrap: balance; }
+.subtitulo { font-size: clamp(1.2rem, 2.6vw, 1.6rem); line-height: 1.25; font-weight: 400; color: var(--tinta-2); margin: .75rem 0 0; text-wrap: balance; }
+.olho { font-size: 1.05rem; font-weight: 600; color: var(--tinta-2); margin: 0 0 .5rem; letter-spacing: -.01em; }
+
+/* botões em pílula */
+.acoes { display: flex; gap: 1rem 1.25rem; flex-wrap: wrap; justify-content: center; margin-top: 1.75rem; }
+.pilula { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .7rem 1.4rem; border-radius: 980px;
+          font-size: 1.05rem; font-weight: 500; letter-spacing: -.01em; background: var(--acao); color: #fff; }
+.pilula:hover { background: var(--acao-forte); text-decoration: none; }
+.pilula.vazada { background: transparent; color: var(--acao); box-shadow: inset 0 0 0 1.5px var(--acao); }
+.pilula.vazada:hover { background: var(--acao); color: #fff; }
+.seta::after { content: " ›"; }
+.links { display: flex; gap: .5rem 2rem; flex-wrap: wrap; justify-content: center; margin-top: 1.25rem; font-size: 1.15rem; }
+.links a { min-height: 48px; display: inline-flex; align-items: center; }
+
+/* faixas */
+.faixa { padding-top: clamp(3.5rem, 9vw, 6rem); padding-bottom: clamp(3.5rem, 9vw, 6rem); text-align: center; }
+.faixa.cinza { background: var(--faixa); }
+.faixa .largura > p:not([class]) { max-width: var(--leitura); margin: 1rem auto 0; color: var(--tinta-2); font-size: 1.15rem; }
+
+/* abertura */
+.abertura { padding-top: clamp(3rem, 8vw, 5.5rem); padding-bottom: 0; overflow: hidden; }
+.vitrine { display: flex; justify-content: center; align-items: flex-end; gap: clamp(1rem, 4vw, 2.5rem); margin-top: clamp(2.5rem, 6vw, 4rem); }
+.vitrine img { width: clamp(150px, 28vw, 280px); border-radius: clamp(20px, 3vw, 36px); box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .35); }
+.vitrine img:last-child { margin-bottom: clamp(1.5rem, 5vw, 3.5rem); }
+
+/* app em destaque na página inicial */
+.app-destaque .tela { margin: clamp(2.5rem, 6vw, 3.5rem) auto 0; width: clamp(200px, 34vw, 300px); border-radius: 34px; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .35); }
+.lojas { display: flex; gap: .75rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
+.selo { display: inline-flex; border-radius: 9px; }
+.selo img { height: 48px; width: auto; }
+
+/* em desenvolvimento e competências: blocos lado a lado */
+.grade { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); margin-top: 2.5rem; text-align: left; }
+.bloco { background: var(--tela); border-radius: 18px; padding: 1.75rem 1.6rem; }
+.faixa:not(.cinza) .bloco { background: var(--faixa); }
+.bloco h3 { font-size: 1.4rem; line-height: 1.15; font-weight: 700; letter-spacing: -.02em; margin: 0 0 .5rem; }
+.bloco p { margin: 0; color: var(--tinta-2); }
+.bloco-link { display: block; color: var(--tinta); }
+.bloco-link:hover { text-decoration: none; }
+.bloco-link h3::after { content: " ›"; color: var(--acao); }
+.etiqueta-estado { display: inline-block; font-size: .78rem; font-weight: 600; color: var(--cobre); margin-bottom: .6rem; letter-spacing: 0; }
+
+/* página de app */
+.recursos { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); margin-top: 2.5rem; text-align: left; }
+.recursos .bloco ul { margin: .75rem 0 0; padding-left: 1.1rem; color: var(--tinta-2); display: grid; gap: .45rem; }
+.galeria { display: flex; gap: 1.25rem; overflow-x: auto; padding: 2.5rem 22px 1rem; scroll-snap-type: x mandatory; justify-content: safe center; }
+.galeria figure { margin: 0; flex: 0 0 auto; width: clamp(180px, 24vw, 240px); scroll-snap-align: center; }
+.galeria img { border-radius: 26px; box-shadow: 0 20px 40px -24px rgba(0, 0, 0, .35); }
+.galeria figcaption { font-size: .9rem; color: var(--tinta-2); margin-top: .6rem; }
+.nota { max-width: var(--leitura); margin: 1.25rem auto 0; color: var(--tinta-2); font-size: .95rem; }
+
+/* documento legal */
+.documento { max-width: 44rem; margin: 0 auto; padding-top: clamp(2.5rem, 7vw, 4.5rem); padding-bottom: 4rem; }
+.documento h1 { font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.1; font-weight: 700; letter-spacing: -.03em; margin: 0 0 .5rem; }
+.documento h2 { font-size: 1.35rem; font-weight: 700; letter-spacing: -.02em; margin: 2.25rem 0 .5rem; }
+.documento p, .documento li { color: #333336; }
+.documento .data { color: var(--tinta-2); margin-top: 0; }
+.documento .resumo { background: var(--faixa); border-radius: 14px; padding: 1.1rem 1.25rem; }
+.documento table { border-collapse: collapse; width: 100%; font-size: .95rem; }
+.documento .tabela { overflow-x: auto; }
+.documento th, .documento td { text-align: left; vertical-align: top; padding: .55rem .6rem; border-bottom: 1px solid var(--linha); }
+.documento code { font-size: .88em; background: var(--faixa); padding: .1em .35em; border-radius: 5px; overflow-wrap: anywhere; }
+.voltar { display: inline-flex; align-items: center; min-height: 48px; font-size: .95rem; }
+
+/* contato */
+.email-grande { font-size: clamp(1.4rem, 4vw, 2.2rem); font-weight: 600; letter-spacing: -.02em; margin: 1.25rem 0 0; overflow-wrap: anywhere; }
+.email-grande a { display: inline-block; padding: .3rem 0; }
+
+/* rodapé no estilo das lojas: texto pequeno e cinza */
+.rodape { background: var(--faixa); color: var(--tinta-2); font-size: .8rem; line-height: 1.35; letter-spacing: -.01em; }
+.rodape .largura { padding-top: 1.5rem; padding-bottom: 2rem; }
+.rodape h2 { font-size: .8rem; font-weight: 600; color: var(--tinta); margin: 0 0 .4rem; }
+.rodape .colunas { display: grid; gap: 1.25rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); padding-bottom: 1.25rem; border-bottom: 1px solid var(--linha); }
+.rodape ul { list-style: none; margin: 0; padding: 0; }
+.rodape li a { color: var(--tinta-2); display: inline-flex; min-height: 44px; align-items: center; }
+.rodape li a:hover { color: var(--tinta); }
+.rodape .final { padding-top: 1rem; margin: 0; }
+
+@media (max-width: 40rem) {
+  .topo nav a { padding: 0 .45rem; }
+  .marca span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .simbolo { width: 30px; height: 30px; }
+  .vitrine img:last-child { margin-bottom: 1.25rem; }
+}
+/* sombra: as telas flutuam sobre a faixa, como produto em vitrine; os blocos ganham relevo leve */
+.vitrine img, .app-destaque .tela, .galeria img {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .06), 0 18px 36px -12px rgba(0, 0, 0, .22), 0 48px 90px -36px rgba(0, 0, 0, .45); }
+.bloco { box-shadow: 0 1px 2px rgba(0, 0, 0, .04), 0 12px 30px -18px rgba(0, 0, 0, .22); }
+.selo { box-shadow: 0 8px 20px -10px rgba(0, 0, 0, .45); }
+.galeria figcaption strong { color: var(--tinta); font-weight: 600; }
+
+/* movimento: um momento na abertura (as telas sobem ao abrir) e as telas dos apps crescem ao entrar na rolagem.
+   Sem suporte a animação por rolagem, ou com «reduzir movimento», a página fica parada e completa. */
+@media (prefers-reduced-motion: no-preference) {
+  .pilula, .selo, .topo nav a, .bloco { transition: background-color .3s, color .3s, opacity .3s, transform .3s, box-shadow .3s; }
+  .bloco:hover { transform: translateY(-4px); box-shadow: 0 1px 2px rgba(0, 0, 0, .05), 0 22px 40px -18px rgba(0, 0, 0, .3); }
+  .selo:hover { transform: translateY(-2px); }
+  @keyframes subir { from { transform: translateY(40px); } to { transform: none; } }
+  .vitrine img { animation: subir .9s cubic-bezier(.2, .7, .2, 1) both; }
+  .vitrine img:last-child { animation-delay: .12s; }
+  @supports (animation-timeline: view()) {
+    @keyframes crescer { from { transform: scale(.9); } to { transform: none; } }
+    .app-destaque .tela, .galeria img { animation: crescer linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
+  }
+}
+@media print { .topo, .acoes, .lojas, .pular { display: none; } }

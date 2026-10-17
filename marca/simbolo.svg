@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t"><title id="t">Outcome Analytics</title>
+  <!-- a trilha: sobe como um gráfico de indicadores e chega ao ponto de solda («O» de Outcome) -->
+  <path d="M6 54 L19 41 L28 46 L38 30" fill="none" stroke="#1F5C45" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="6" cy="54" r="4" fill="#1F5C45"/>
+  <circle cx="45" cy="21" r="12" fill="none" stroke="#B4622C" stroke-width="6"/>
+  <circle cx="45" cy="21" r="3.2" fill="#B4622C"/>
+</svg>

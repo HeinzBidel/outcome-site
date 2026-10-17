@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206 64" role="img" aria-labelledby="t"><title id="t">Outcome Analytics</title>
+  <path d="M6 54 L19 41 L28 46 L38 30" fill="none" stroke="#1F5C45" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="6" cy="54" r="4" fill="#1F5C45"/>
+  <circle cx="45" cy="21" r="12" fill="none" stroke="#B4622C" stroke-width="6"/>
+  <circle cx="45" cy="21" r="3.2" fill="#B4622C"/>
+  <text x="74" y="36" font-family="Fraunces, Georgia, serif" font-size="27" font-weight="600" fill="#1C1A15" letter-spacing="-0.3">Outcome</text>
+  <text x="76" y="56" font-family="'Source Sans 3', 'Segoe UI', sans-serif" font-size="13.5" font-weight="600" fill="#5A554B" letter-spacing="3.2">ANALYTICS</text>
+</svg>
