@@ -5,6 +5,7 @@
   /* 17/10: azul-tinta + cobre (MARCA.md §6 — confiança e competência de editora; o cobre é o pad de solda da bancada) */
   --tela: #FFFFFF; --faixa: #F5F5F7; --tinta: #14182A; --tinta-2: #4A5060; --linha: #D6D8DE;
   --marca: #1B2A4A; --acao: #1B2A4A; --acao-forte: #0F1A33; --cobre: #B0672E;
+  --cobre-texto: #8F4F1C;   /* o cobre da marca não passa 4,5:1 em texto pequeno; este passa (conferência 17/10) */
   --letra: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI Variable Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --largura: 980px; --leitura: 42rem;
   color-scheme: light;
@@ -120,6 +121,26 @@ a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobr
 @media (max-width: 40rem) {
   .cartao-app { grid-template-columns: 1fr; }
   .cartao-tela { max-width: 15rem; justify-self: center; }
+}
+
+/* destaques da página do app: cada recurso com título, texto e uma tela real com respiro (nunca colada na borda) */
+.destaques { display: grid; gap: clamp(1rem, 2.5vw, 1.5rem); margin-top: 2.5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); text-align: left; }
+.destaque { display: flex; flex-direction: column; background: var(--faixa); border-radius: 28px; padding: clamp(1.5rem, 3.5vw, 2.5rem); overflow: hidden; }
+.faixa.cinza .destaque { background: var(--tela); }
+.destaque .olho { margin: 0 0 .35rem; color: var(--cobre-texto); font-size: .95rem; }
+.destaque h3 { font-size: clamp(1.4rem, 2.6vw, 1.85rem); line-height: 1.12; font-weight: 700; letter-spacing: -.025em; margin: 0 0 .7rem; color: var(--marca); text-wrap: balance; }
+.destaque-texto p:last-child { margin: 0; color: var(--tinta-2); }
+.destaque-tela { margin-top: auto; padding-top: 1.75rem; display: flex; justify-content: center; }
+.destaque-tela img { width: min(100%, 15.5rem); border-radius: 26px;
+                     box-shadow: 0 2px 6px rgba(20, 24, 42, .08), 0 24px 44px -20px rgba(20, 24, 42, .4); }
+.destaque-largo { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 2rem; align-items: center; }
+.destaque-largo .destaque-tela { padding-top: 0; }
+.destaque-largo .destaque-tela img { width: min(100%, 30rem); border-radius: 22px; }
+.destaque-largo.tel .destaque-tela img { width: min(100%, 15.5rem); border-radius: 26px; }
+@media (max-width: 44rem) {
+  .destaques { grid-template-columns: 1fr; }
+  .destaque-largo { grid-template-columns: 1fr; }
+  .destaque-largo .destaque-tela { padding-top: 1.5rem; }
 }
 
 /* carrossel das imagens da loja: sem barra de rolagem, com setas (W3C/WAI: botões nativos, nada gira sozinho) */
