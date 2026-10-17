@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t"><title id="t">Outcome Analytics</title>
-  <!-- a bancada (horizontal) sobe a 45° — o indicador — e chega ao ponto de solda em forma de «O» (o resultado) -->
-  <path d="M5 49 H23 L37 35" fill="none" stroke="#1B2A4A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="44" cy="28" r="10" fill="none" stroke="#B0672E" stroke-width="6"/>
-</svg>

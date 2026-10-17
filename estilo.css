@@ -3,8 +3,10 @@
    o cobre fica só no logo. Letra do sistema (SF no iPhone e no Mac, Segoe no Windows). Ver MARCA.md §6. */
 :root {
   /* 17/10: azul-tinta + cobre (MARCA.md §6 — confiança e competência de editora; o cobre é o pad de solda da bancada) */
-  --tela: #FFFFFF; --faixa: #F5F5F7; --tinta: #14182A; --tinta-2: #4A5060; --linha: #D6D8DE;
-  --marca: #1B2A4A; --acao: #1B2A4A; --acao-forte: #0F1A33; --cobre: #B0672E;
+  /* 17/10 tarde (dono: «as letras estão azuis, quero elas pretas»; «o site vai ser somente branco»): texto, títulos, links e
+     botões no preto da Apple; o azul-tinta fica só no logo; o cobre, em detalhes. Sem tema escuro. */
+  --tela: #FFFFFF; --faixa: #F5F5F7; --tinta: #1D1D1F; --tinta-2: #515154; --linha: #D2D2D7;
+  --marca: #1D1D1F; --acao: #1D1D1F; --acao-forte: #000000; --cobre: #B0672E;
   --cobre-texto: #8F4F1C;   /* o cobre da marca não passa 4,5:1 em texto pequeno; este passa (conferência 17/10) */
   --letra: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI Variable Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --largura: 980px; --leitura: 42rem;
@@ -28,16 +30,49 @@ a, button { touch-action: manipulation; }
 .topo { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: rgba(255, 255, 255, .8);
         -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); border-bottom: 1px solid rgba(20, 24, 42, .08); }
 .topo .largura { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 52px; }
-.marca { display: flex; align-items: center; gap: .5rem; color: var(--tinta); font-weight: 600; font-size: 1rem; letter-spacing: -.01em; min-height: 48px; }
+/* 17/10: nome na letra dos títulos do site (dono: «quero essa fonte»), em 700 como as manchetes */
+/* 17/10 (auditoria de proporção): símbolo ≈ 2,4× a altura das maiúsculas do nome (34 px × 14 px), traço do símbolo pequeno
+   (≈ 2,2 px) no peso das hastes do nome em seminegrito; espaço = largura de um «O». */
+.marca { display: flex; align-items: center; gap: .95rem; color: var(--marca); font-weight: 600; font-size: 1.25rem; letter-spacing: -.022em; min-height: 48px; }
 .marca:hover { text-decoration: none; }
-.simbolo { width: 26px; height: 26px; flex: none; }
-.s-trilha { fill: none; stroke: var(--marca); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
-.s-pad { fill: none; stroke: var(--cobre); stroke-width: 6; }
+.simbolo { width: 34px; height: 34px; flex: none; }
 .titulo-gigante, .titulo { color: var(--marca); }
 a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobre); text-underline-offset: .25em; }
 .topo nav { display: flex; gap: .25rem; }
 .topo nav a { color: var(--tinta); font-size: .82rem; padding: 0 .7rem; min-height: 48px; display: inline-flex; align-items: center; opacity: .85; }
 .topo nav a:hover { opacity: 1; text-decoration: none; }
+/* 17/10: seletor de idioma — sigla no botão, nome de cada idioma escrito nele mesmo na lista; sem bandeira */
+.topo nav { margin-left: auto; }
+/* 17/10: no celular estreito não cabem 4 links + o seletor (rolagem lateral): ficam Siloé, Rivail e o idioma;
+   Privacidade e Contato seguem nas seções da página e no rodapé */
+@media (max-width: 30rem) { .topo nav a[href$="#privacidade"], .topo nav a[href$="#contato"] { display: none; } .idiomas summary { padding: 0 .45rem; } }
+.idiomas { position: relative; margin-left: .25rem; }
+.idiomas summary { list-style: none; display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; min-width: 44px; padding: 0 .6rem;
+                   border-radius: 980px; cursor: pointer; font-size: .82rem; font-weight: 600; color: var(--tinta); }
+.idiomas summary::-webkit-details-marker { display: none; }
+.idiomas summary:hover, .idiomas[open] summary { background: var(--faixa); }
+.idiomas summary svg { fill: none; stroke: currentColor; stroke-width: 1.6; }
+.idiomas ul { position: absolute; right: 0; top: calc(100% + .35rem); z-index: 30; list-style: none; margin: 0; padding: .4rem;
+              background: var(--tela); border-radius: 14px; min-width: 11rem; box-shadow: 0 12px 40px -12px rgba(0, 0, 0, .25), 0 0 0 1px var(--linha); }
+.idiomas li a { display: flex; align-items: center; min-height: 44px; padding: 0 .9rem; border-radius: 9px; color: var(--tinta); font-size: .95rem; }
+.idiomas li a:hover { background: var(--faixa); text-decoration: none; }
+.idiomas li a[aria-current] { font-weight: 600; }
+.idiomas li a[aria-current]::after { content: "✓"; margin-left: auto; padding-left: 1rem; color: var(--cobre-texto); }
+.erro-idiomas { list-style: none; padding: 0; margin: 2.5rem auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .25rem 1.5rem; font-size: .95rem; }
+.erro-idiomas a { color: var(--tinta-2); min-height: 44px; display: inline-flex; align-items: center; }
+/* 17/10: idiomas também no rodapé */
+.idiomas-rodape { display: flex; flex-wrap: wrap; align-items: center; gap: 0 1.1rem; margin: .5rem 0 0; font-size: .85rem; }
+.idiomas-rodape span { color: var(--tinta-2); font-weight: 600; margin-right: .25rem; }
+.idiomas-rodape a { color: var(--tinta); min-height: 44px; display: inline-flex; align-items: center; }
+.idiomas-rodape a[aria-current] { font-weight: 600; text-decoration: underline; text-decoration-color: var(--cobre); text-underline-offset: .25em; }
+/* 17/10: coreano quebra entre palavras, não no meio da sílaba-bloco (padrão da tipografia coreana na web) */
+:lang(ko) { word-break: keep-all; overflow-wrap: anywhere; }
+/* faixa que sugere o idioma do aparelho (não redireciona) */
+.faixa-idioma { position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0 1rem; padding: .3rem calc(48px + max(8px, env(safe-area-inset-right, 0px))) .3rem max(16px, env(safe-area-inset-left, 0px));
+                background: var(--faixa); font-size: .92rem; border-bottom: 1px solid var(--linha); }
+.faixa-idioma p { margin: 0; }
+.faixa-idioma a { font-weight: 600; text-decoration: underline; text-decoration-color: var(--cobre); text-underline-offset: .25em; min-height: 44px; display: inline-flex; align-items: center; }
+.faixa-idioma button { position: absolute; right: max(4px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); border: 0; background: none; font-size: 1.3rem; line-height: 1; min-width: 44px; min-height: 44px; cursor: pointer; color: var(--tinta-2); }
 
 /* títulos e textos */
 .titulo-gigante { font-size: clamp(2.5rem, 7vw, 4.6rem); line-height: 1.05; font-weight: 700; letter-spacing: -.035em; margin: 0; text-wrap: balance; }
@@ -67,11 +102,61 @@ a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobr
 .vitrine img { width: clamp(150px, 28vw, 280px); border-radius: clamp(20px, 3vw, 36px); box-shadow: 0 30px 60px -30px rgba(20, 24, 42, .35); }
 .vitrine img:last-child { margin-bottom: clamp(1.5rem, 5vw, 3.5rem); }
 
+/* 17/10 tarde: abertura da empresa, compromissos, números e rótulos de privacidade */
+.abertura .olho { color: var(--cobre-texto); font-size: 1.1rem; margin-bottom: 1rem; }
+.abertura .titulo-gigante { max-width: 15ch; margin-inline: auto; }
+.abertura .subtitulo { max-width: 34ch; margin-inline: auto; margin-top: 1.25rem; }
+/* 17/10 (avaliação final): a primeira tela mostra o produto, não só a promessa — os dois apps, cada um leva à sua página */
+.apps-mini { list-style: none; padding: 0; margin: clamp(2.5rem, 6vw, 3.5rem) auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2.5rem; }
+.apps-mini a { display: flex; align-items: center; gap: .85rem; color: var(--tinta); text-align: left; min-height: 64px; }
+.apps-mini a:hover { text-decoration: none; }
+.apps-mini a:hover strong { text-decoration: underline; text-decoration-color: var(--cobre); text-underline-offset: .2em; }
+.apps-mini img { width: 64px; height: 64px; border-radius: 15px; box-shadow: 0 8px 20px -10px rgba(0, 0, 0, .35); }
+.apps-mini strong { display: block; font-size: 1.15rem; letter-spacing: -.015em; }
+.apps-mini small { display: block; font-size: .92rem; color: var(--tinta-2); }
+.compromissos { display: grid; gap: 1.25rem; grid-template-columns: 1fr; margin-top: 2.75rem; text-align: left; }
+@media (min-width: 36rem) { .compromissos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 64rem) { .compromissos { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.compromisso { background: var(--faixa); border-radius: 22px; padding: 1.75rem 1.5rem 1.9rem; }
+.faixa.cinza .compromisso, .faixa.cinza .rotulo { background: var(--tela); }
+.faixa:not(.cinza) .rotulo { background: var(--faixa); }
+.rotulo .links { justify-content: flex-start; }
+.compromisso h3 { font-size: 1.3rem; line-height: 1.15; font-weight: 700; letter-spacing: -.02em; margin: 1rem 0 .5rem; }
+.compromisso p { margin: 0; color: var(--tinta-2); font-size: 1rem; }
+.icone-linha { display: block; fill: none; stroke: var(--cobre-texto); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; color: var(--cobre-texto); }
+.prova { margin: 2.25rem auto 0; font-size: 1.15rem; font-weight: 600; color: var(--tinta); }
+.numeros { list-style: none; padding: 0; margin: 2.75rem auto 0; max-width: 54rem; display: grid; gap: 2.25rem 1rem; grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 40rem) { .numeros { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.25rem 1.5rem; } }
+.numeros strong { display: block; font-size: clamp(2.8rem, 6vw, 3.8rem); line-height: 1; font-weight: 700; letter-spacing: -.04em; }
+.numeros span { display: block; margin-top: .5rem; color: var(--tinta-2); font-size: 1rem; max-width: 18ch; margin-inline: auto; }
+/* 17/10: cada link «Por dentro do…» fica centrado sob a tela do seu app (dono: «desalinhados em relação às imagens») */
+.vitrine-apps { align-items: flex-start; }
+.tela-app { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; color: var(--tinta); font-size: 1.1rem; }
+.tela-app:hover { text-decoration: none; }
+.tela-app .seta { text-decoration: underline; text-decoration-color: var(--cobre); text-underline-offset: .25em; min-height: 44px; display: inline-flex; align-items: center; }
+.vitrine-apps .tela-app:last-child { margin-top: 0; }
+.vitrine-apps img:last-child { margin-bottom: 0; }
+.rotulos { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 21rem), 1fr)); margin-top: 2.5rem; text-align: left; }
+.rotulo { background: var(--tela); border-radius: 22px; padding: 1.6rem 1.6rem 1.4rem; }
+.rotulo-topo { display: flex; align-items: center; gap: .9rem; }
+.rotulo-topo img { width: 56px; height: 56px; border-radius: 13px; }
+.rotulo-topo h3 { font-size: 1.5rem; font-weight: 700; letter-spacing: -.02em; margin: 0; }
+.rotulo dl { margin: 1.25rem 0 0; }
+.rotulo dl > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 1rem; padding: .8rem 0; border-top: 1px solid var(--linha); }
+.rotulo dt { color: var(--tinta-2); font-size: .98rem; }
+.rotulo dd { margin: 0; font-size: .98rem; }
+.rotulo dd.nenhum { font-weight: 600; }
+.rotulo .links { margin: 1rem 0 0; }
+
 /* app em destaque na página inicial */
 .app-destaque .tela { margin: clamp(2.5rem, 6vw, 3.5rem) auto 0; width: clamp(200px, 34vw, 300px); border-radius: 34px; box-shadow: 0 30px 60px -30px rgba(20, 24, 42, .35); }
 .lojas { display: flex; gap: .75rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem; }
 .selo { display: inline-flex; border-radius: 9px; }
 .selo img { height: 48px; width: auto; }
+/* 17/10 (revisão no celular): a 48 px os dois selos não cabiam lado a lado no cartão e empilhavam; o guia da Apple
+   aceita a partir de 40 px */
+@media (max-width: 40rem) { .selo img { height: 40px; } .selo { padding: 2px 0; } .lojas { gap: .6rem; } }   /* 40 + 2 + 2 = 44 px de toque */
 
 /* em desenvolvimento e competências: blocos lado a lado */
 .grade { display: grid; gap: 1.25rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); margin-top: 2.5rem; text-align: left; }
@@ -206,7 +291,7 @@ a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobr
 @media (max-width: 40rem) {
   .topo nav a { padding: 0 .45rem; }
   .marca span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .simbolo { width: 30px; height: 30px; }
+  .simbolo { width: 34px; height: 34px; }
   .vitrine img:last-child { margin-bottom: 1.25rem; }
 }
 /* sombra: as telas flutuam sobre a faixa, como produto em vitrine; os blocos ganham relevo leve */
@@ -230,4 +315,14 @@ a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobr
     .app-destaque .tela, .galeria img { animation: crescer linear both; animation-timeline: view(); animation-range: entry 0% cover 40%; }
   }
 }
+/* 17/10 (dono: «transições suaves entre as páginas»): View Transitions entre documentos — só CSS; quem não suporta
+   abre a página normalmente. O topo fica parado; o conteúdo some e entra com um leve deslize. Respeita «reduzir movimento». */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  .topo { view-transition-name: topo; }
+  ::view-transition-old(root) { animation: 180ms cubic-bezier(.4, 0, 1, 1) both pagina-sai; }
+  ::view-transition-new(root) { animation: 320ms cubic-bezier(0, 0, .2, 1) 60ms both pagina-entra; }
+}
+@keyframes pagina-sai { to { opacity: 0; } }
+@keyframes pagina-entra { from { opacity: 0; transform: translateY(10px); } }
 @media print { .topo, .acoes, .lojas, .pular { display: none; } }
