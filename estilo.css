@@ -89,6 +89,18 @@ a, button { touch-action: manipulation; }
 .galeria figure { margin: 0; flex: 0 0 auto; width: clamp(180px, 24vw, 240px); scroll-snap-align: center; }
 .galeria img { border-radius: 26px; box-shadow: 0 20px 40px -24px rgba(0, 0, 0, .35); }
 .galeria figcaption { font-size: .9rem; color: var(--tinta-2); margin-top: .6rem; }
+.preco { font-size: .95rem; color: var(--tinta-2); margin: 1rem auto 0; max-width: var(--leitura); }
+.lojas + .preco { margin-top: .9rem; }
+.perguntas { max-width: 46rem; margin: 2rem auto 0; text-align: left; border-top: 1px solid var(--linha); }
+.perguntas details { border-bottom: 1px solid var(--linha); }
+.perguntas summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+                     min-height: 56px; padding: .9rem 0; font-size: 1.15rem; font-weight: 600; letter-spacing: -.015em; }
+.perguntas summary::-webkit-details-marker { display: none; }
+.perguntas summary::after { content: "+"; font-size: 1.5rem; font-weight: 300; color: var(--acao); flex: none; }
+.perguntas details[open] summary::after { content: "−"; }
+.perguntas details p { margin: 0 0 1.1rem; color: var(--tinta-2); }
+@media (min-width: 64rem) { .galeria { flex-wrap: wrap; overflow: visible; justify-content: center; }
+                            .galeria figure { width: clamp(170px, 15vw, 205px); } }
 .nota { max-width: var(--leitura); margin: 1.25rem auto 0; color: var(--tinta-2); font-size: .95rem; }
 
 /* documento legal */
