@@ -12,8 +12,16 @@
   --largura: 980px; --leitura: 42rem;
   color-scheme: only light;   /* 17/10: «only» impede o modo escuro forçado do navegador (o site é só branco) */
 }
+/* 17/10 (o Samsung Internet do dono escureceu o site mesmo com «only light»): esse navegador só deixa de forçar o escuro
+   quando o site TEM resposta própria para o modo escuro. A resposta é a mesma do claro — no escuro, o site continua branco. */
+@media (prefers-color-scheme: dark) {
+  :root { --tela: #FFFFFF; --faixa: #F5F5F7; --tinta: #1D1D1F; --tinta-2: #515154; --linha: #D2D2D7;
+          --marca: #1D1D1F; --acao: #1D1D1F; --acao-forte: #000000; --cobre: #B0672E; --cobre-texto: #8F4F1C;
+          color-scheme: only light; }
+  html, body { background: #FFFFFF; color: #1D1D1F; }
+}
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; background: #FFFFFF; }
 body { margin: 0; background: var(--tela); color: var(--tinta); font: 400 17px/1.47 var(--letra); letter-spacing: -.022em;
        -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
