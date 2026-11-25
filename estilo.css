@@ -280,6 +280,9 @@ a.seta, .links a { text-decoration: underline; text-decoration-color: var(--cobr
   .simbolo { width: 34px; height: 34px; }
   .vitrine .aparelho:last-child { margin-bottom: 1.25rem; }
 }
+/* 25/11: com o SaborMundi são 4 apps no topo; no celular estreito os links encostam e a letra diminui um pouco para caber com o seletor de idioma;
+   em tela ainda mais estreita (320 px), os links rolam dentro do menu e a página não ganha rolagem lateral */
+@media (max-width: 30rem) { .topo .largura { gap: .5rem; } .topo nav { gap: 0; min-width: 0; overflow-x: auto; scrollbar-width: none; } .topo nav::-webkit-scrollbar { display: none; } .topo nav a { padding: 0 .25rem; font-size: .78rem; white-space: nowrap; flex: none; } }
 /* sombra: as telas flutuam sobre a faixa, como produto em vitrine; os blocos ganham relevo leve */
 .app-destaque .tela, .galeria img {
   box-shadow: 0 2px 6px rgba(20, 24, 42, .06), 0 18px 36px -12px rgba(20, 24, 42, .22), 0 48px 90px -36px rgba(20, 24, 42, .45); }
